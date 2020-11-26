@@ -1,20 +1,35 @@
-let pokemonList =[]
-pokemonList = {
-  name: "bulbasaur", height: 7, type: ["glass", "poison"]
-};
+let pokemonList = [
+{
+  name: "Bulbasaur",
+  height: 7,
+  type: ["glass", "poison"]
+},
 
-pokemonList = {
-  name: "charizard", height: 6, type: "fire"
-};
+{
+  name: "Charizard",
+  height: 6,
+  type: "fire"
+},
 
-pokemonList = {
-  name: "squirtle", height: 5, type: "water"
-};
+{
+  name: "Squirtle",
+  height: 5,
+  type: "water"
+},
 
-pokemonList = {
-  name: "caterpie", height: 3, type: "bug"
-};
+{
+  name: "Caterpie",
+  height: 3,
+  type: "bug"
+},
 
-pokemonlist = {
-  name: "weedle", height: 3, type: ["bug", "poison"]
+{
+  name: "Weedle",
+  height: 3,
+  type: ["bug", "poison"]
+}
+];
+
+for (let i = 0; i < pokemonList.length; i++){
+  document.write(pokemonList[i]);
 };
