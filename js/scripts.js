@@ -39,7 +39,7 @@ let pokemonList = [
 
 // Loop of pokemon with height
 for (let i = 0; i < pokemonList.length; i++){
-  document.write(`${pokemonList[i].name}(height: ${pokemonList[i].height})`);
+  document.write(`<p>${pokemonList[i].name}(height: ${pokemonList[i].height})</p>`);
 if(pokemonList[i].height > 1.0){
   document.write("-Wow, that's big!")
 } // if pokemons' height is higher than 1.0, add this comment.
