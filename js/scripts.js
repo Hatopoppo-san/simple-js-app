@@ -58,11 +58,11 @@ let pokemonRepository = (function () {
 if(pokemonList[i].height > 1.0){
   document.write("-Wow, that's big!")
 } // if pokemons' height is higher than 1.0, add this comment.
-}; */
+}; 
 
-//loop with foreach to see if it works w/o if (task 1.5)
+  loop with foreach to see if it works w/o if (task 1.5)
 
-/*This doesn't work :
+  This doesn't work :
   function myLoopFunction(getAll){
   write.document(`${pokemonRepository.getAll}`);
  }
