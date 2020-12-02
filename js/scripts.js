@@ -43,7 +43,7 @@ let pokemonRepository = (function(){
        return pokemonList;
      },
      add: function(pokemon){
-       if(typeof pokemon ===  "object" && pokemon === Object.keys(pokemon)){
+       if(typeof pokemon ===  "object" && pokemon === Object.keys(pokemon).includes("name", "height", "type")){
        return pokemonList.push(pokemon);
       }
     }
@@ -52,7 +52,7 @@ let pokemonRepository = (function(){
 
 
 
-//after adding the condition(45), this works
+//test if this works
 pokemonRepository.add({
   name: "charmander",
   height: 1.0,
