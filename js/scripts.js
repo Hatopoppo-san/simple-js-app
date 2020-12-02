@@ -1,6 +1,6 @@
 // List of pokemons, height and type
-let pokemonRepository = (function () {
-   let pokemonList = [
+let pokemonRepository = (function(){
+  let pokemonList = [
      {
        name: "Bulbasaur",
        height: 0.7,
@@ -38,38 +38,39 @@ let pokemonRepository = (function () {
      }
    ];
 
-    function getAll() {
-     return pokemonList;
-   };
-
-    function add(pokemon) {
-     pokemonList.push(pokemon)
-   };
-
-   return {
-     getAll: getAll,
-     add: add
-  };
+   return{
+     getAll: function(){
+       return pokemonList;
+     },
+     add: function(pokemon){
+       if(typeof pokemon ===  "object" && pokemon === Object.keys(pokemon)){
+       return pokemonList.push(pokemon);
+      }
+    }
+  }
 })();
 
+
+
+//after adding the condition(45), this works
+pokemonRepository.add({
+  name: "charmander",
+  height: 1.0,
+  type: "fire"});
+//this is not added to the pokemonList as it's number.
+pokemonRepository.add(0);
+
+//it shows pokemonRepository.getAll works.
+console.log(pokemonRepository.getAll())
 // Loop of pokemon with height
-/*for (let i = 0; i < pokemonList.length; i++){
+/* for (let i = 0; i < pokemonList.length; i++){
   document.write(`<p>${pokemonList[i].name}(height: ${pokemonList[i].height})</p>`);
 if(pokemonList[i].height > 1.0){
   document.write("-Wow, that's big!")
 } // if pokemons' height is higher than 1.0, add this comment.
-}; 
+}; */
 
-  loop with foreach to see if it works w/o if (task 1.5)
-
-  This doesn't work :
-  function myLoopFunction(getAll){
-  write.document(`${pokemonRepository.getAll}`);
- }
- pokemonRepository.getAll.forEach(myLoopFunction);
-
-
-  This doesn't work either :
-  pokemonRepository.forEach(function(pokemonRepository.getAll){
-  document.write(`<p>${pokemonRepository.getAll}</p>`);
-}); */
+  // loop with foreach to see if it works w/o if (task 1.5)
+  pokemonRepository.getAll().forEach(function(pokemon){
+  document.write(`<p>${pokemon.name}, ${pokemon.height}</p>`);
+})
