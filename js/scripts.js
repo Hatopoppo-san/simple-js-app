@@ -54,12 +54,12 @@ let pokemonRepository = (function(){
     };
     //This doesn't work somehow (Error message : function(addListItem) is not a function)
     function addListItem(pokemon){
-      let pokemonLibrary = document.querySelector('ul');
+      let pokemonList = document.querySelector('.pokemon-list');
       let listPokemon = document.createElement('li');
       let button = document.createElement('button');
         button.innerText = pokemon.name;
         button.classList.add('pokemonButton');
-        listItem.appendChild(button)
+        listPokemon.appendChild(button)
         pokemonLibrary.appendChild(listPokemon);
       };
     return{
