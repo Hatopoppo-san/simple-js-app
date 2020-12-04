@@ -43,16 +43,33 @@ let pokemonRepository = (function(){
        return pokemonList;
      },
      add: function(pokemon){
-       if(typeof pokemon ===  "object" && pokemon === Object.keys(pokemon).includes("name", "height", "type")){
+       if(typeof pokemon ===  "object" &&
+          "name" in pokemon &&
+          "height" in pokemon &&
+          "type" in pokemon
+        ){
        return pokemonList.push(pokemon);
+        }
       }
     }
-  }
+    //This doesn't work somehow (Error message : function(addListItem) is not a function)
+    function addListItem(pokemon){
+      let pokemonLibrary = document.querySelector('ul');
+      let listPokemon = document.createElement('li');
+      let button = document.createElement('button');
+        button.innerText = pokemon.name;
+        button.classList.add('pokemonButton');
+        listItem.appendChild(button)
+        pokemonLibrary.appendChild(listPokemon);
+      }
+    return{
+      getAll: getAll,
+      add: add,
+      addListItem: addListItem
+    }
 })();
 
 
-
-//test if this works
 pokemonRepository.add({
   name: "charmander",
   height: 1.0,
@@ -60,8 +77,7 @@ pokemonRepository.add({
 //this is not added to the pokemonList as it's number.
 pokemonRepository.add(0);
 
-//it shows pokemonRepository.getAll works.
-console.log(pokemonRepository.getAll())
+
 // Loop of pokemon with height
 /* for (let i = 0; i < pokemonList.length; i++){
   document.write(`<p>${pokemonList[i].name}(height: ${pokemonList[i].height})</p>`);
@@ -70,7 +86,7 @@ if(pokemonList[i].height > 1.0){
 } // if pokemons' height is higher than 1.0, add this comment.
 }; */
 
-  // loop with foreach to see if it works w/o if (task 1.5)
+  //loop with foreach to see if it works w/o if (task 1.5)
   pokemonRepository.getAll().forEach(function(pokemon){
-  document.write(`<p>${pokemon.name}, ${pokemon.height}</p>`);
-})
+    pokemonRepository.addListItem(pokemon);
+    });
