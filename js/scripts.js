@@ -51,7 +51,7 @@ let pokemonRepository = (function(){
        return pokemonList.push(pokemon);
         }
       }
-    }
+    };
     //This doesn't work somehow (Error message : function(addListItem) is not a function)
     function addListItem(pokemon){
       let pokemonLibrary = document.querySelector('ul');
@@ -61,12 +61,12 @@ let pokemonRepository = (function(){
         button.classList.add('pokemonButton');
         listItem.appendChild(button)
         pokemonLibrary.appendChild(listPokemon);
-      }
+      };
     return{
       getAll: getAll,
       add: add,
       addListItem: addListItem
-    }
+    };
 })();
 
 
@@ -86,7 +86,7 @@ if(pokemonList[i].height > 1.0){
 } // if pokemons' height is higher than 1.0, add this comment.
 }; */
 
-  //loop with foreach to see if it works w/o if (task 1.5)
+  //loop with foreach to see if it works w/o if
   pokemonRepository.getAll().forEach(function(pokemon){
     pokemonRepository.addListItem(pokemon);
-    });
+  });
