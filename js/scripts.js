@@ -38,20 +38,22 @@ let pokemonRepository = (function(){
      }
    ];
 
-   return{
-     getAll: function(){
+
+    const getAll = () =>{
        return pokedex;
-     },
-     add: function(pokemon){
+     }
+
+    const add = (pokemon) =>{
        if(typeof pokemon ===  "object" &&
           "name" in pokemon &&
           "height" in pokemon &&
           "type" in pokemon
         ){
        return pokedex.push(pokemon);
-        }
-      }
-    };
+     }else{
+       console.log('Add pokemon with "name", "height", "weight"')
+     }
+   };
     //This doesn't work somehow (Error message : function(addListItem) is not a function)
     const addListItem = (pokemon) => {
       let pokemonList = document.querySelector('.pokemon-list');
