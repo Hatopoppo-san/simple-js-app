@@ -60,7 +60,7 @@ let pokemonRepository = (function(){
         button.innerText = pokemon.name;
         button.classList.add('pokemonButton');
         listPokemon.appendChild(button)
-        pokedex.appendChild(listPokemon);
+        pokemonList.appendChild(listPokemon);
       };
     return{
       getAll: getAll,
