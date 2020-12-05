@@ -38,11 +38,11 @@ let pokemonRepository = (function(){
      }
    ];
 
-
+// to get all pokemons' data as in IIFE you cannot access to "pokedex" directly.
     const getAll = () =>{
        return pokedex;
      }
-
+// to add pokemons into the list with condition.
     const add = (pokemon) =>{
        if(typeof pokemon ===  "object" &&
           "name" in pokemon &&
@@ -54,19 +54,25 @@ let pokemonRepository = (function(){
        console.log('Add pokemon with "name", "height", "weight"')
      }
    };
-   
+  //to show pokemons onclick. this is variable for it.
    const showDetails = (pokemon) =>{
      console.log(pokemon);
    };
 
+// add pokedex pokemons to DOM as buttons
   const addListItem = (pokemon) => {
-     let pokemonList = document.querySelector('.pokemon-list');
-     let listPokemon = document.createElement('li');
-      let button = document.createElement('button');
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listPokemon = document.createElement('li');
+    let button = document.createElement('button');
+        button.addEventListener('click', function(event) {
+          let target = event.target;
+          target.classList.toggle(showDetails(pokemon))
+      });
         button.innerText = pokemon.name;
         button.classList.add('pokemonButton');
         listPokemon.appendChild(button)
         pokemonList.appendChild(listPokemon);
+
       };
     return{
       getAll: getAll,
@@ -75,13 +81,13 @@ let pokemonRepository = (function(){
     };
 })();
 
-
+// test if this pokemon is added into the pokedex.(worked)
 pokemonRepository.add({
   name: "charmander",
   height: 1.0,
   type: "fire"});
 //this is not added to the pokemonList as it's number.
-pokemonRepository.add(0);
+//pokemonRepository.add(0);
 
 
 // Loop of pokemon with height
@@ -92,7 +98,7 @@ if(pokemonList[i].height > 1.0){
 } // if pokemons' height is higher than 1.0, add this comment.
 }; */
 
-  //loop with foreach to see if it works w/o if
+  //loop with foreach to see if it works w/o "if" with addListItem function.
   pokemonRepository.getAll().forEach(function(pokemon){
     pokemonRepository.addListItem(pokemon);
   });
