@@ -1,6 +1,6 @@
 // List of pokemons, height and type
 let pokemonRepository = (function(){
-  let pokemonList = [
+  let pokedex = [
      {
        name: "Bulbasaur",
        height: 0.7,
@@ -40,7 +40,7 @@ let pokemonRepository = (function(){
 
    return{
      getAll: function(){
-       return pokemonList;
+       return pokedex;
      },
      add: function(pokemon){
        if(typeof pokemon ===  "object" &&
@@ -48,7 +48,7 @@ let pokemonRepository = (function(){
           "height" in pokemon &&
           "type" in pokemon
         ){
-       return pokemonList.push(pokemon);
+       return pokedex.push(pokemon);
         }
       }
     };
@@ -60,7 +60,7 @@ let pokemonRepository = (function(){
         button.innerText = pokemon.name;
         button.classList.add('pokemonButton');
         listPokemon.appendChild(button)
-        pokemonList.appendChild(listPokemon);
+        pokedex.appendChild(listPokemon);
       };
     return{
       getAll: getAll,
