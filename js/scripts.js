@@ -85,6 +85,37 @@ return{
   showDetails: showDetails
 };
 
+//see if modal works
+let showModal = (title, text) =>{
+  let modalCoutainer = document.querySelector('#modal-container');
+
+  let modal = document.createElement('div');
+  modal.classList.add('modal');
+
+  //Add the new modal content
+  let closeButtonElement = document.createEleent('button');
+  closeButtonElement.classList.add('modal-close');
+  closebuttonElement.innerText = 'Close';
+
+  let titleElement = document.createElement('h1');
+  titleElement.innerText = title;
+
+  let contentElement = document.createElement('p');
+  contentElement.innerText = text;
+
+  modal.appendChild(closeButtonElement);
+  modal.appendChild(titleElement);
+  modal.appendChild(contentElement);
+  modalContainer.appendChild(modal);
+
+  modalContainer.classList.add('is-visible');
+}
+
+  document.querySelector('.pokemonButton').addEventListener('click', () =>{
+    showModal(loadDetails());
+  });
+
+
 })();
 
 /*test if this pokemon is added into the pokedex.(worked)
