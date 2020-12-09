@@ -76,15 +76,6 @@ const showDetails = (pokemon) =>{
   });
 }
 
-return{
-  getAll: getAll,
-  add: add,
-  addListItem: addListItem,
-  loadList: loadList,
-  loadDetails: loadDetails,
-  showDetails: showDetails
-};
-
 //see if modal works
 let showModal = (title, text) =>{
   let modalCoutainer = document.querySelector('#modal-container');
@@ -96,6 +87,7 @@ let showModal = (title, text) =>{
   let closeButtonElement = document.createEleent('button');
   closeButtonElement.classList.add('modal-close');
   closebuttonElement.innerText = 'Close';
+  closeButtonElement.addEventListener('click', hideModal);
 
   let titleElement = document.createElement('h1');
   titleElement.innerText = title;
@@ -111,10 +103,23 @@ let showModal = (title, text) =>{
   modalContainer.classList.add('is-visible');
 }
 
-  document.querySelector('.pokemonButton').addEventListener('click', () =>{
-    showModal(loadDetails());
-  });
+function hideModal(){
+  let modalContainer = document.querySelector('#modal-container');
+  modalContainer.classList.remove('is-visible')
+}
 
+document.querySelector('.pokemonButton').addEventListener('click', () =>{
+  showModal(loadDetails());
+});
+
+return{
+  getAll: getAll,
+  add: add,
+  addListItem: addListItem,
+  loadList: loadList,
+  loadDetails: loadDetails,
+  showDetails: showDetails
+};
 
 })();
 
