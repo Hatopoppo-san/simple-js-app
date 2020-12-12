@@ -78,15 +78,15 @@ const showDetails = (pokemon) =>{
 
 //see if modal works
 let showModal = (title, text) =>{
-  let modalCoutainer = document.querySelector('#modal-container');
+  let modalContainer = document.querySelector('#modal-container');
 
   let modal = document.createElement('div');
   modal.classList.add('modal');
 
   //Add the new modal content
-  let closeButtonElement = document.createEleent('button');
+  let closeButtonElement = document.createElement('button');
   closeButtonElement.classList.add('modal-close');
-  closebuttonElement.innerText = 'Close';
+  closeButtonElement.innerText = 'Close';
   closeButtonElement.addEventListener('click', hideModal);
 
   let titleElement = document.createElement('h1');
@@ -108,9 +108,9 @@ function hideModal(){
   modalContainer.classList.remove('is-visible')
 }
 
-document.querySelector('.pokemonButton').addEventListener('click', () =>{
+  /*document.querySelector('.pokemonButton').addEventListener('click', () =>{
   showModal(loadDetails());
-});
+}); */
 
 return{
   getAll: getAll,
