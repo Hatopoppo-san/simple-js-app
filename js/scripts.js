@@ -139,23 +139,6 @@ return{
 
 })();
 
-/*test if this pokemon is added into the pokedex.(worked)
-pokemonRepository.add({
-  name: "charmander",
-  height: 1.0,
-  type: "fire"}); */
-  //this is not added to the pokemonList as it's number.
-  //pokemonRepository.add(0);
-
-
-  // Loop of pokemon with height
-  /* for (let i = 0; i < pokemonList.length; i++){
-  document.write(`<p>${pokemonList[i].name}(height: ${pokemonList[i].height})</p>`);
-  if(pokemonList[i].height > 1.0){
-  document.write("-Wow, that's big!")
-} // if pokemons' height is higher than 1.0, add this comment.
-}; */
-
 //loop with foreach to see if it works w/o "if" with addListItem function.
 pokemonRepository.loadList().then(function(){
   pokemonRepository.getAll().forEach(function(pokemon){
