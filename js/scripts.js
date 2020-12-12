@@ -69,12 +69,12 @@ function loadDetails(item){
   });
 }
 
-//to show pokemons onclick. this is variable for it.
+/*to show pokemons onclick. this is variable for it.
 const showDetails = (pokemon) =>{
   loadDetails(pokemon).then(function(){
-    showModal(pokemon);
+    showModal(`${pokemon.name}`, `${pokemon.height}`);
   });
-}
+} */
 
 //see if modal works
 let modalContainer = document.querySelector('#modal-container');
@@ -97,9 +97,9 @@ let showModal = (title, text) =>{
   let contentElement = document.createElement('p');
   contentElement.innerText = text;
 
-  modal.appendChild(closeButtonElement);
   modal.appendChild(titleElement);
   modal.appendChild(contentElement);
+  modal.appendChild(closeButtonElement);
   modalContainer.appendChild(modal);
 
   modalContainer.classList.add('is-visible');
@@ -116,6 +116,13 @@ window.addEventListener('keydown', (e) =>{
     hideModal();
   }
 });
+
+//to show pokemons onclick. this is variable for it.
+const showDetails = (pokemon) =>{
+  loadDetails(pokemon).then(function(){
+    showModal(`${pokemon.name}`, `${pokemon.height}`);
+  });
+}
 
 modalContainer.addEventListener('click' ,(e) =>{
   let target = e.target;
