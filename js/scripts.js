@@ -72,14 +72,14 @@ function loadDetails(item){
 //to show pokemons onclick. this is variable for it.
 const showDetails = (pokemon) =>{
   loadDetails(pokemon).then(function(){
-    console.log(pokemon);
+    showModal(pokemon);
   });
 }
 
 //see if modal works
-let showModal = (title, text) =>{
-  let modalContainer = document.querySelector('#modal-container');
+let modalContainer = document.querySelector('#modal-container');
 
+let showModal = (title, text) =>{
   let modal = document.createElement('div');
   modal.classList.add('modal');
 
@@ -88,6 +88,8 @@ let showModal = (title, text) =>{
   closeButtonElement.classList.add('modal-close');
   closeButtonElement.innerText = 'Close';
   closeButtonElement.addEventListener('click', hideModal);
+
+
 
   let titleElement = document.createElement('h1');
   titleElement.innerText = title;
@@ -101,12 +103,26 @@ let showModal = (title, text) =>{
   modalContainer.appendChild(modal);
 
   modalContainer.classList.add('is-visible');
-}
+};
 
 function hideModal(){
   let modalContainer = document.querySelector('#modal-container');
   modalContainer.classList.remove('is-visible')
 }
+
+window.addEventListener('keydown', (e) =>{
+  let modalContainer = document.querySelector('#modal-container');
+  if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')){
+    hideModal();
+  }
+});
+
+modalContainer.addEventListener('click' ,(e) =>{
+  let target = e.target;
+  if(target === modalContainer){
+    hideModal()
+  }
+});
 
   /*document.querySelector('.pokemonButton').addEventListener('click', () =>{
   showModal(loadDetails());
