@@ -61,7 +61,7 @@ function loadDetails(item){
   return fetch(url).then(function(response){
     return response.json();
   }).then(function (details){
-    item.imageUrl = details.sprites.front_default;
+    item.imgUrl = details.sprites.front_default;
     item.height = details.height;
     item.types = details.types;
   }).catch(function (e){
@@ -69,15 +69,18 @@ function loadDetails(item){
   });
 }
 
-/*to show pokemons onclick. this is variable for it.
-const showDetails = (pokemon) =>{
-  loadDetails(pokemon).then(function(){
-    showModal(`${pokemon.name}`, `${pokemon.height}`);
+//to show pokemons onclick. this is variable for it.
+const showDetails = (item) =>{
+  loadDetails(item).then(function(){
+    showModal(`${item.name}`, `height: ${item.height}`);
   });
-} */
+}
 
 //see if modal works
 let modalContainer = document.querySelector('#modal-container');
+let pokemonImage = document.createElement('img');
+pokemonImage.src = item.imgUrl;
+modalContainer.appendChild(pokemonImage);
 
 let showModal = (title, text) =>{
   let modal = document.createElement('div');
@@ -117,12 +120,6 @@ window.addEventListener('keydown', (e) =>{
   }
 });
 
-//to show pokemons onclick. this is variable for it.
-const showDetails = (pokemon) =>{
-  loadDetails(pokemon).then(function(){
-    showModal(`${pokemon.name}`, `${pokemon.height}`);
-  });
-}
 
 modalContainer.addEventListener('click' ,(e) =>{
   let target = e.target;
@@ -130,10 +127,6 @@ modalContainer.addEventListener('click' ,(e) =>{
     hideModal()
   }
 });
-
-  /*document.querySelector('.pokemonButton').addEventListener('click', () =>{
-  showModal(loadDetails());
-}); */
 
 return{
   getAll: getAll,
