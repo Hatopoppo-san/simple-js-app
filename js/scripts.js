@@ -89,10 +89,6 @@ const showDetails = (pokemon) =>{
     let modal = document.createElement('div');
     modal.classList.add('modal');
 
-    //add pokemonImage into modal
-    let pokemonImage = document.createElement('img');
-    pokemonImage.src = pokemon.imgUrl;
-
     //Add the new modal content
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
@@ -102,14 +98,22 @@ const showDetails = (pokemon) =>{
     let titleElement = document.createElement('h1');
     titleElement.innerText = pokemon.name;
 
+    /*//add pokemonImage into modal
+    let pokemonImage = document.createElement('img');
+    pokemonImage.src = pokemon.imgUrl; */
+
     let contentElement = document.createElement('p');
-    contentElement.innerText = pokemon.weight;
+    contentElement.setAttribute('id', 'pokemonImg');
+    let pokemonImg = document.createElement('img');
+    pokemonImg.src = pokemon.imgUrl;
+
+    contentElement.innerText = pokemon.height;
 
     modal.appendChild(titleElement);
+    modal.appendChild(pokemonImg);
     modal.appendChild(contentElement);
     modal.appendChild(closeButtonElement);
     modalContainer.appendChild(modal);
-    modalContainer.appendChild(pokemonImage);
 
     modalContainer.classList.add('is-visible');
   };

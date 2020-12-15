@@ -35,7 +35,7 @@ body {
 
 #modal-container.is-visible{
   position: fixed;
-  padding: 20px;
+  padding-top: 100px;
   box-sizing: border-box;
   top: 0;
   left: 0;
