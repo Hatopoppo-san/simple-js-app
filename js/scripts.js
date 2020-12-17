@@ -121,7 +121,7 @@ const showDetails = (pokemon) =>{
   function hideModal() {
     let modalContainer = document.querySelector('#modal-container');
     modalContainer.classList.remove('is-visible');
-    //modalContainer.innerHTML = '';
+    modalContainer.innerHTML = '';
   }
 
   window.addEventListener('keydown', e => {
