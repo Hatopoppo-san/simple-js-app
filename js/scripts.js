@@ -107,7 +107,7 @@ const showDetails = (pokemon) =>{
     let pokemonImg = document.createElement('img');
     pokemonImg.src = pokemon.imgUrl;
 
-    contentElement.innerText = pokemon.height;
+    contentElement.innerText = `height: ${pokemon.height}`;
 
     modal.appendChild(titleElement);
     modal.appendChild(pokemonImg);
