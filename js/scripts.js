@@ -30,6 +30,7 @@ let pokemonRepository = (function() {
     });
     button.innerText = pokemon.name;
     button.classList.add('pokemonButton');
+    listPokemon.classList.add('group-list-item')
     $('.pokemonButton').attr('data-toggle', 'modal');
     $('.pokemonButton').attr('data-target', '#pokeModal');
     listPokemon.appendChild(button);
