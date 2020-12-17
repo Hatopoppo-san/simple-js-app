@@ -87,7 +87,7 @@ const showDetails = (pokemon) =>{
 
   let showModal = pokemon => {
     let modal = document.createElement('div');
-    modal.classList.add('modal');
+    modal.classList.add('pokeModal');
 
     //Add the new modal content
     let closeButtonElement = document.createElement('button');
