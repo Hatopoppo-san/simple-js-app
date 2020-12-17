@@ -55,14 +55,14 @@ body {
   text-align: center;
 }
 
-.modal{
+.pokeModal{
   margin: auto;
   display: inline-block;
   background: #fff;
   padding: 15px;
   width: 100%;
-  max-width: 700px;
-  text-align: left;
+  max-width: 500px;
+  text-align: center;
 }
 
 .modal-close{
