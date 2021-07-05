@@ -1,7 +1,7 @@
 # simple-js-app
 Javascript practice on CF
 
-This is my first app with Javascript and api (pokrmon api).
+This is my first app with Javascript and api (pokemon api).
 
 This app uses bootstrap, JQuery, Poke api.
 Poke api's link : https://pokeapi.co/
